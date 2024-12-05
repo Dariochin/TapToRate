@@ -1,21 +1,38 @@
-//
-//  ContentView.swift
-//  TapToRate
-//
-//  Created by d3 on 05/12/24.
-//
-
 import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        TabView {
+            HomeView()
+                .tabItem {
+                    Image(systemName: "house.fill")
+                    Text("Home")
+                }
+
+            SearchView()
+                .tabItem {
+                    Image(systemName: "magnifyingglass")
+                    Text("Search")
+                }
+
+            UploadView()
+                .tabItem {
+                    Image(systemName: "plus.circle.fill")
+                    Text("Upload")
+                }
+
+            NotificationsView()
+                .tabItem {
+                    Image(systemName: "bell.fill")
+                    Text("Notifications")
+                }
+
+            ProfileView()
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }
         }
-        .padding()
     }
 }
 
