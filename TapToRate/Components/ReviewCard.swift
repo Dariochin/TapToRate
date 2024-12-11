@@ -1,13 +1,10 @@
 import SwiftUI
 
-struct ReviewPostView: View {
+struct ReviewCard: View {
     var image: String
     var title: String
     var description: String
     var rating: Int
-    var likes: Int
-    var dislikes: Int
-    var comments: Int
 
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -21,12 +18,12 @@ struct ReviewPostView: View {
                 .font(.title)
                 .fontWeight(.bold)
 
+            Rating(rating: rating)
+
             Text(description)
                 .font(.body)
                 .foregroundColor(.gray)
                 .lineLimit(150)
-
-            Rating(rating: rating)
 
             Spacer()
         }
@@ -37,14 +34,11 @@ struct ReviewPostView: View {
 }
 
 #Preview {
-    ReviewPostView(
+    ReviewCard(
         image: "table",
         title: "Tavolo",
         description:
             "Questo è un tavolo che ho da moltissimi anni, purtroppo ora non lo uso più. Mi piace molto per la sua forma e la sua funzionalità per il gioco di carte",
-        rating: 4,
-        likes: 100,
-        dislikes: 17,
-        comments: 10
+        rating: 4
     )
 }
